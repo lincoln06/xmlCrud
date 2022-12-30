@@ -18,9 +18,9 @@ namespace deserializer2.Classes
         [XmlElement("CarEngineSize")]
         public ushort EngineSize { get; set; }
         [XmlElement("CarPower")]
-        public byte Power { get; set; }
+        public ushort Power { get; set; }
         [XmlElement("CarTopSpeed")]
-        public byte TopSpeed { get; set; }
+        public ushort TopSpeed { get; set; }
         [XmlElement("CarColor")]
         public string Color { get; set; }
     }

@@ -33,7 +33,7 @@ namespace deserializer2.Model
                 Console.WriteLine("Pojemność silnika [cm3]");
                 ushort engineSize = ushort.Parse(Console.ReadLine());
                 Console.WriteLine("Moc [KM]");
-                byte topSpeed = byte.Parse(Console.ReadLine());
+                ushort topSpeed = ushort.Parse(Console.ReadLine());
                 Console.WriteLine("Kolor");
                 string color = Console.ReadLine();
                 return new Car

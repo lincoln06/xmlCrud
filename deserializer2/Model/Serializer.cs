@@ -1,16 +1,13 @@
 ﻿using deserializer2.Interfaces;
-using deserializer2.View;
 using deserializer2.Classes;
-using System.Xml.Serialization;
 
 namespace deserializer2.Model
 {
-    public class Serializer : ISerializer
+    public class Serializer : SerializerBase, ISerializer
     {
         private readonly IMenu _menu;
         private readonly IResponseProvider _responseProvider;
-        private readonly string _xmlPath = "Data/Car.xml";
-        private readonly XmlSerializer _xmlSerializer = new XmlSerializer(typeof(List<Car>));
+        
         public Serializer(IMenu menu, IResponseProvider responseProvider)
         {
             _menu = menu;
@@ -22,13 +19,14 @@ namespace deserializer2.Model
             int choose = _responseProvider.AskUserWhatToDo();
             if (choose < 1) return;
             List<Car> listOfCars = GenerateList(choose);
+            listOfCars.AddRange(LoadCars());
             Serialize(listOfCars);
 
         }
 
         private void Serialize(List<Car> listOfCars)
         {
-            using(var writer=new StreamWriter(_xmlPath))
+            using(var writer=new StreamWriter(_xmlFilePath))
             {
                 _xmlSerializer.Serialize(writer, listOfCars);
             }
@@ -43,6 +41,11 @@ namespace deserializer2.Model
                 if (car is { }) listOfCars.Add(car);
             }
             return listOfCars;
+        }
+        public override List<Car> LoadCars()
+        {
+            base.LoadCars();
+            return _listOfCars;
         }
     }
 }
