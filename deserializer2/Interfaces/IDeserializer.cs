@@ -3,5 +3,6 @@
     public interface IDeserializer
     {
         void ShowCars();
+        void Start();
     }
 }

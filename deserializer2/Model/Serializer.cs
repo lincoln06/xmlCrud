@@ -21,9 +21,7 @@ namespace deserializer2.Model
             List<Car> listOfCars = GenerateList(choose);
             listOfCars.AddRange(LoadCars());
             Serialize(listOfCars);
-
         }
-
         private void Serialize(List<Car> listOfCars)
         {
             using(var writer=new StreamWriter(_xmlFilePath))

@@ -11,6 +11,7 @@ namespace deserializer2.Model
 {
     public class ResponseProvider : IResponseProvider
     {
+        
         public int AskUserWhatToDo()
         {
             int number=int.Parse(Console.ReadLine());

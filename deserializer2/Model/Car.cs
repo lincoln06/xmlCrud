@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 namespace deserializer2.Classes
 {
     [Serializable]
-    [XmlRoot("CarDetails")]
+    //[XmlRoot("CarDetails")]
     public class Car:ICar
     {
         [XmlElement("CarManufacturer")]

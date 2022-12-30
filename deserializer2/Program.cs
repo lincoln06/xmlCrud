@@ -15,4 +15,6 @@ void Configure(IServiceCollection service)
     service.AddTransient<ISerializer, Serializer>();
     service.AddTransient<IResponseProvider,ResponseProvider>();
     service.AddTransient<IController, Controller>();
+    service.AddTransient<IListViewer,ListViewer>();
+    service.AddTransient<IValidator, Validator>();
 }

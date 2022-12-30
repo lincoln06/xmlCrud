@@ -16,13 +16,17 @@ namespace deserializer2.Model
         private readonly ISerializer _serializer;
         private readonly IResponseProvider _responseProvider;
         private readonly IController _controller;
-        public App(IMenu menu, IDeserializer deserializer, ISerializer serializer, IResponseProvider responseProvider, IController controller)
+        private readonly IListViewer _listViewer;
+        private readonly IValidator _validator;
+        public App(IMenu menu, IDeserializer deserializer, ISerializer serializer, IResponseProvider responseProvider, IController controller, IListViewer listViewer, IValidator validator)
         {
             _menu = menu;
             _deserializer = deserializer;
             _serializer = serializer;
             _responseProvider = responseProvider;
             _controller = controller;
+            _listViewer = listViewer;
+            _validator = validator;
         }
         public void Start()
         {
@@ -34,7 +38,7 @@ namespace deserializer2.Model
                     _serializer.Start();
                     break;
                 case 2:
-                    _deserializer.ShowCars();
+                    _deserializer.Start();
                     break;
                 default:
                     _menu.WrongChoice();

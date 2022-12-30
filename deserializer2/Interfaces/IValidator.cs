@@ -2,5 +2,6 @@
 {
     public interface IValidator
     {
+        List<string> Validate(string xmlFilePath, string xsdFilePath);
     }
 }

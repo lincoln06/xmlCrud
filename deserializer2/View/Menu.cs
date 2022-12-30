@@ -21,5 +21,6 @@ namespace deserializer2.View
         {
             Console.WriteLine("Ile samochodów chcesz dodać?");
         }
+        
     }
 }
