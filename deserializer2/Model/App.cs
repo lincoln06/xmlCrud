@@ -16,7 +16,7 @@ namespace deserializer2.Model
         private readonly ISerializer _serializer;
         private readonly IResponseProvider _responseProvider;
         private readonly IController _controller;
-        public App(IMenu menu, IDeserializer deserializer, ISerializer serializer, IValidator validator, IResponseProvider responseProvider, IController controller)
+        public App(IMenu menu, IDeserializer deserializer, ISerializer serializer, IResponseProvider responseProvider, IController controller)
         {
             _menu = menu;
             _deserializer = deserializer;

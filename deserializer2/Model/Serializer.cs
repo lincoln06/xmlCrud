@@ -7,10 +7,15 @@ namespace deserializer2.Model
 {
     public class Serializer : ISerializer
     {
-        private readonly Menu _menu;
-        private readonly ResponseProvider _responseProvider;
+        private readonly IMenu _menu;
+        private readonly IResponseProvider _responseProvider;
         private readonly string _xmlPath = "Data/Car.xml";
         private readonly XmlSerializer _xmlSerializer = new XmlSerializer(typeof(List<Car>));
+        public Serializer(IMenu menu, IResponseProvider responseProvider)
+        {
+            _menu = menu;
+            _responseProvider=responseProvider;
+        }
         public void Start()
         {
             _menu.ShowSerializerOptions();

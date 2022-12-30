@@ -10,9 +10,14 @@ namespace deserializer2.Model
     public class Deserializer : IDeserializer
     {
         public readonly IMenu _menu;
+        public Deserializer(IMenu menu)
+        {
+            _menu = menu;
+        }
 
         public void ShowCars()
         {
+            //TODO Pokazywanie listy samochodów
             throw new NotImplementedException();
         }
     }
