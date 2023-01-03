@@ -3,26 +3,28 @@ using System.Xml.Serialization;
 
 namespace deserializer2.Classes
 {
-    
-    [XmlRoot("CarDetails")]
+
+    [Serializable]
+    [XmlRoot("ArrayOfCar")]
     
     public class Car:ICar
+        
     {
-        [XmlElement("CarManufacturer")]
+        [XmlElement("Manufacturer")]
         public string Manufacturer { get; set; }
-        [XmlElement("CarModel")]
+        [XmlElement("Model")]
         public string Model { get; set; }
-        [XmlElement("CarYearOfProduction")]
+        [XmlElement("Year")]
         public ushort Year { get; set; }
-        [XmlElement("CarFuelType")]
+        [XmlElement("Fuel")]
         public string FuelType { get; set; }
-        [XmlElement("CarEngineSize")]
+        [XmlElement("EngineSize")]
         public ushort EngineSize { get; set; }
-        [XmlElement("CarPower")]
+        [XmlElement("Power")]
         public ushort Power { get; set; }
-        [XmlElement("CarTopSpeed")]
+        [XmlElement("TopSpeed")]
         public ushort TopSpeed { get; set; }
-        [XmlElement("CarColor")]
+        [XmlElement("Color")]
         public string Color { get; set; }
     }
 }

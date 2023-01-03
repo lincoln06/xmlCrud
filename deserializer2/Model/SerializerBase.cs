@@ -8,7 +8,7 @@ namespace deserializer2.Model
     {
         public readonly static string _xmlFilePath = @"Data/Car.xml";
         public readonly static string _xsdFilePath = @"Data/Car.xsd";
-        public readonly XmlSerializer _xmlSerializer = new XmlSerializer(typeof(List<Car>),"Car");
+        public readonly XmlSerializer _xmlSerializer = new XmlSerializer(typeof(List<Car>));
         public List<Car> _listOfCars = new List<Car>();
         public virtual List<Car> LoadCars()
         {
