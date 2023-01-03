@@ -48,9 +48,9 @@ namespace deserializer2.Model
                     Color = color
                 };
             }
-            catch
+            catch(Exception e)
             {
-                Console.WriteLine("Nieprawidłowa wartość");
+                Console.WriteLine($"Nieprawidłowa wartość\n{e.Message}");
                 return null;
             }
         }
