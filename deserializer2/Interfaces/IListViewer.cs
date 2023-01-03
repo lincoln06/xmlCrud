@@ -1,4 +1,5 @@
 ﻿using deserializer2.Classes;
+using deserializer2.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;

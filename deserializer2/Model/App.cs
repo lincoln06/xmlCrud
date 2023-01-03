@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using deserializer2.Interfaces;
-using deserializer2.View;
+﻿using deserializer2.Interfaces;
 
 namespace deserializer2.Model
 {
@@ -15,18 +8,12 @@ namespace deserializer2.Model
         private readonly IDeserializer _deserializer;
         private readonly ISerializer _serializer;
         private readonly IResponseProvider _responseProvider;
-        private readonly IController _controller;
-        private readonly IListViewer _listViewer;
-        private readonly IValidator _validator;
-        public App(IMenu menu, IDeserializer deserializer, ISerializer serializer, IResponseProvider responseProvider, IController controller, IListViewer listViewer, IValidator validator)
+        public App(IMenu menu, IDeserializer deserializer, ISerializer serializer, IResponseProvider responseProvider)
         {
             _menu = menu;
             _deserializer = deserializer;
             _serializer = serializer;
             _responseProvider = responseProvider;
-            _controller = controller;
-            _listViewer = listViewer;
-            _validator = validator;
         }
         public void Start()
         {
@@ -40,9 +27,28 @@ namespace deserializer2.Model
                 case 2:
                     _deserializer.Start();
                     break;
+                case 3:
+                    Environment.Exit(0);
+                    break;
                 default:
                     _menu.WrongChoice();
                     _menu.ShowMenu();
+                    choose = _responseProvider.AskUserWhatToDo();
+                    break;
+            }
+            _menu.AskIfUserWantsToExit();
+            choose= _responseProvider.AskUserWhatToDo();
+            switch(choose)
+            {
+                case 1:
+                    Environment.Exit(0);
+                    break;
+                case 2:
+                    Start();
+                    break;
+                default:
+                    _menu.WrongChoice();
+                    _menu.AskIfUserWantsToExit();
                     choose = _responseProvider.AskUserWhatToDo();
                     break;
             }

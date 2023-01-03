@@ -2,6 +2,7 @@
 {
     public interface IMenu
     {
+        void AskIfUserWantsToExit();
         void ShowMenu();
         void ShowSerializerOptions();
         void WrongChoice();

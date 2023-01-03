@@ -1,5 +1,4 @@
 ﻿using deserializer2.Interfaces;
-using System.Xml;
 
 namespace deserializer2.View
 {
@@ -11,6 +10,7 @@ namespace deserializer2.View
             Console.WriteLine($"{new String('-',18)}\n");
             Console.WriteLine("1\tDodaj samochód");
             Console.WriteLine("2\tWyświetl samochody");
+            Console.WriteLine("3\tWyjdź");
         }
         public void WrongChoice()
         {
@@ -21,6 +21,12 @@ namespace deserializer2.View
         {
             Console.WriteLine("Ile samochodów chcesz dodać?");
         }
-        
+
+        public void AskIfUserWantsToExit()
+        {
+            Console.WriteLine("Czy chcesz zakończyć program?");
+            Console.WriteLine("1\tTak");
+            Console.WriteLine("2\tNie");
+        }
     }
 }
