@@ -8,8 +8,14 @@ namespace deserializer2.Model
         
         public int AskUserWhatToDo()
         {
-            int number=int.Parse(Console.ReadLine());
-            return number;
+            try
+            {
+                return int.Parse(Console.ReadLine());
+            }
+            catch
+            {
+                return -1;
+            }
         }
 
         public Car GetCarFromUser(int carNumber)
