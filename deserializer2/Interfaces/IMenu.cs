@@ -2,9 +2,8 @@
 {
     public interface IMenu
     {
-        void AskIfUserWantsToExit();
         void ShowMenu();
-        void ShowSerializerOptions();
-        void WrongChoice();
+        void ShowWrongChoiceError();
+        void ShowHeader();
     }
 }

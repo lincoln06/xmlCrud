@@ -1,7 +1,6 @@
 ﻿namespace deserializer2.Interfaces
 {
-    public interface ISerializer
+    public interface ISerializer:IXMLSerializer
     {
-        void Start();
     }
 }

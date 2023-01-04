@@ -8,21 +8,25 @@ namespace deserializer2.Model
         private readonly IDeserializer _deserializer;
         private readonly ISerializer _serializer;
         private readonly IResponseProvider _responseProvider;
-        public App(IMenu menu, IDeserializer deserializer, ISerializer serializer, IResponseProvider responseProvider)
+        private readonly IValidator _validator;
+        public App(IMenu menu, IDeserializer deserializer, ISerializer serializer, IResponseProvider responseProvider, IValidator validator)
         {
             _menu = menu;
             _deserializer = deserializer;
             _serializer = serializer;
             _responseProvider = responseProvider;
+            _validator = validator;
         }
         public void Start()
         {
             _menu.ShowMenu();
-            int choose = _responseProvider.AskUserWhatToDo();
-            switch(choose)
+            int choice = _responseProvider.GetIntNumberFromUser();
+            switch(choice)
             {
                 case 1:
                     _serializer.Start();
+                    _menu.ShowHeader();
+                    _deserializer.Start();
                     break;
                 case 2:
                     _deserializer.Start();
@@ -31,25 +35,7 @@ namespace deserializer2.Model
                     Environment.Exit(0);
                     break;
                 default:
-                    _menu.WrongChoice();
-                    _menu.ShowMenu();
-                    choose = _responseProvider.AskUserWhatToDo();
-                    break;
-            }
-            _menu.AskIfUserWantsToExit();
-            choose= _responseProvider.AskUserWhatToDo();
-            switch(choose)
-            {
-                case 1:
-                    Environment.Exit(0);
-                    break;
-                case 2:
-                    Start();
-                    break;
-                default:
-                    _menu.WrongChoice();
-                    _menu.AskIfUserWantsToExit();
-                    choose = _responseProvider.AskUserWhatToDo();
+                    _menu.ShowWrongChoiceError();
                     break;
             }
         }

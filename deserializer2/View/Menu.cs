@@ -12,21 +12,19 @@ namespace deserializer2.View
             Console.WriteLine("2\tWyświetl samochody");
             Console.WriteLine("3\tWyjdź");
         }
-        public void WrongChoice()
+        public void ShowWrongChoiceError()
         {
             Console.WriteLine("Zły wybór");
         }
-
-        public void ShowSerializerOptions()
+        public void ShowHeader()
         {
-            Console.WriteLine("Ile samochodów chcesz dodać?");
-        }
-
-        public void AskIfUserWantsToExit()
-        {
-            Console.WriteLine("Czy chcesz zakończyć program?");
-            Console.WriteLine("1\tTak");
-            Console.WriteLine("2\tNie");
+            Console.WriteLine("Nacisnij dowolny klawisz aby wyświetlić listę samochodów...");
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine(new String('-',20));
+            Console.WriteLine("Lista samochodów:");
+            Console.WriteLine(new String('-', 20));
+            Console.WriteLine();
         }
     }
 }

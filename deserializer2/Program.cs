@@ -1,5 +1,4 @@
-﻿using deserializer2.Controllers;
-using deserializer2.Interfaces;
+﻿using deserializer2.Interfaces;
 using deserializer2.Model;
 using deserializer2.View;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,7 +13,6 @@ void Configure(IServiceCollection service)
     service.AddTransient<IDeserializer, Deserializer>();
     service.AddTransient<ISerializer, Serializer>();
     service.AddTransient<IResponseProvider, ResponseProvider>();
-    service.AddTransient<IController, Controller>();
     service.AddTransient<IListViewer, ListViewer>();
     service.AddTransient<IValidator, Validator>();
 }

@@ -5,8 +5,12 @@ namespace deserializer2.Model
 {
     public class ResponseProvider : IResponseProvider
     {
-        
-        public int AskUserWhatToDo()
+        private readonly IValidator _validator;
+        public ResponseProvider(IValidator validator)
+        {
+            _validator= validator;
+        }
+        public int GetIntNumberFromUser()
         {
             try
             {
@@ -18,11 +22,10 @@ namespace deserializer2.Model
             }
         }
 
-        public Car GetCarFromUser(int carNumber)
+        public Car? GetCarFromUser()
         {
             try
             {
-                Console.WriteLine($"Samochód numer {carNumber}");
                 Console.WriteLine("Marka");
                 string manufacturer = Console.ReadLine();
                 Console.WriteLine("Model");
@@ -34,9 +37,13 @@ namespace deserializer2.Model
                 Console.WriteLine("Pojemność silnika [cm3]");
                 ushort engineSize = ushort.Parse(Console.ReadLine());
                 Console.WriteLine("Moc [KM]");
+                ushort power = ushort.Parse(Console.ReadLine());
+                Console.WriteLine("Pręskość maksymalna [km/h]");
                 ushort topSpeed = ushort.Parse(Console.ReadLine());
                 Console.WriteLine("Kolor");
                 string color = Console.ReadLine();
+                bool isDataCorrect = _validator.CheckDataCorrection(manufacturer, model, fuelType, color);
+                if (!isDataCorrect) throw new Exception("Pola nie mogą być puste");
                 return new Car
                 {
                     Manufacturer = manufacturer,
@@ -44,6 +51,7 @@ namespace deserializer2.Model
                     Year = year,
                     FuelType = fuelType,
                     EngineSize = engineSize,
+                    Power = power,
                     TopSpeed = topSpeed,
                     Color = color
                 };

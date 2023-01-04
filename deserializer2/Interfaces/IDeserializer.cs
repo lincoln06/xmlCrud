@@ -1,8 +1,7 @@
 ﻿namespace deserializer2.Interfaces
 {
-    public interface IDeserializer
+    public interface IDeserializer:IXMLSerializer
     {
         void ShowCars();
-        void Start();
     }
 }
