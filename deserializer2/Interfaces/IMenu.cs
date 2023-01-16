@@ -6,5 +6,6 @@
         void ShowWrongChoiceError();
         void ShowHeader();
         void AskIfUserWantsToExit();
+        void ShowWrongValueError();
     }
 }

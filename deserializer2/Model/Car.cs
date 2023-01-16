@@ -15,15 +15,15 @@ namespace deserializer2.Classes
         [XmlElement("Model")]
         public string Model { get; set; }
         [XmlElement("Year")]
-        public ushort? Year { get; set; }
+        public ushort Year { get; set; }
         [XmlElement("Fuel")]
         public string FuelType { get; set; }
         [XmlElement("EngineSize")]
-        public ushort? EngineSize { get; set; }
+        public ushort EngineSize { get; set; }
         [XmlElement("Power")]
-        public ushort? Power { get; set; }
+        public ushort Power { get; set; }
         [XmlElement("TopSpeed")]
-        public ushort? TopSpeed { get; set; }
+        public ushort TopSpeed { get; set; }
         [XmlElement("Color")]
         public string Color { get; set; }
     }

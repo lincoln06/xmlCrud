@@ -1,21 +1,28 @@
 ﻿using deserializer2.Classes;
 using deserializer2.Interfaces;
+using deserializer2.View;
 
 namespace deserializer2.Model
 {
     public class ResponseProvider : IResponseProvider
     {
         private readonly IValidator _validator;
-        public ResponseProvider(IValidator validator)
+        private readonly IMenu _menu;
+        public ResponseProvider(IValidator validator, IMenu menu)
         {
             _validator= validator;
+            _menu = menu;
         }
         public int GetIntNumberFromUser()
         {
-            int value;
-            bool isAbleToParse = int.TryParse(Console.ReadLine(), out value);
-            if(isAbleToParse)  return value;
-            return -1;
+            int value=0;
+            bool isAbleToParse = false;
+            while (isAbleToParse == false)
+            {
+                isAbleToParse = int.TryParse(Console.ReadLine(), out value);
+                if (!isAbleToParse) _menu.ShowWrongValueError();
+            }
+            return value;
         }
 
         public Car? GetCarFromUser()
@@ -27,18 +34,20 @@ namespace deserializer2.Model
                 Console.WriteLine("Model");
                 string model = Console.ReadLine();
                 Console.WriteLine("Rok");
-                ushort? year = GetUshortNumberFromUser();
+                ushort year = GetUshortNumberFromUser();
                 Console.WriteLine("Rodzaj paliwa");
                 string fuelType = Console.ReadLine();
                 Console.WriteLine("Pojemność silnika [cm3]");
-                ushort? engineSize = GetUshortNumberFromUser();
+                ushort engineSize = GetUshortNumberFromUser();
                 Console.WriteLine("Moc [KM]");
-                ushort? power = GetUshortNumberFromUser();
+                ushort power = GetUshortNumberFromUser();
                 Console.WriteLine("Prędkość maksymalna [km/h]");
-                ushort? topSpeed = GetUshortNumberFromUser();
+                ushort topSpeed = GetUshortNumberFromUser();
                 Console.WriteLine("Kolor");
                 string color = Console.ReadLine();
-                Car car=new Car { 
+                bool isDataCorrect = _validator.CheckDataCorrection(manufacturer, model, fuelType, color);
+                if (!isDataCorrect) throw new Exception("Pola nie mogą być puste");
+                return new Car { 
                     Manufacturer = manufacturer,
                     Model = model,
                     Year = (ushort)year,
@@ -48,9 +57,8 @@ namespace deserializer2.Model
                     TopSpeed = (ushort)topSpeed,
                     Color = color
                 };
-                bool isDataCorrect = _validator.CheckDataCorrection(car);
-                if (!isDataCorrect) throw new Exception("Pola nie mogą być puste");
-                return car;
+                
+                
             }
             catch(Exception e)
             {
@@ -59,12 +67,16 @@ namespace deserializer2.Model
             }
         }
 
-        private ushort? GetUshortNumberFromUser()
+        private ushort GetUshortNumberFromUser()
         {
-            ushort value;
-            bool isAbleToParse = ushort.TryParse(Console.ReadLine(), out value);
-            if (isAbleToParse) return value;
-            return null;
+            ushort value=0;
+            bool isAbleToParse = false;
+            while (isAbleToParse == false)
+            {
+                isAbleToParse = ushort.TryParse(Console.ReadLine(), out value);
+                if(!isAbleToParse) _menu.ShowWrongValueError();
+            }
+            return value;
         }
     }
 }

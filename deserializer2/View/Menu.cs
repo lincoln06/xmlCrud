@@ -31,5 +31,10 @@ namespace deserializer2.View
             Console.WriteLine("1\tTak");
             Console.WriteLine("2\tNie");
         }
+
+        public void ShowWrongValueError()
+        {
+            Console.WriteLine("Nieprawidłowa wartość. Podaj jeszcze raz");
+        }
     }
 }
