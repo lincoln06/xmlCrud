@@ -25,10 +25,11 @@ namespace deserializer2.Model
             {
                 case 1:
                     _serializer.Start();
-                    _menu.ShowHeader();
-                    _deserializer.Start();
+                    //_menu.ShowHeader();
+                    //_deserializer.Start();
                     break;
                 case 2:
+                    _menu.ShowHeader();
                     _deserializer.Start();
                     break;
                 case 3:
@@ -36,6 +37,22 @@ namespace deserializer2.Model
                     break;
                 default:
                     _menu.ShowWrongChoiceError();
+                    Start();
+                    break;
+            }
+            _menu.AskIfUserWantsToExit();
+            choice = _responseProvider.GetIntNumberFromUser();
+            switch (choice)
+            {
+                case 1:
+                    Environment.Exit(0);
+                    break;
+                case 2:
+                    Start();
+                    break;
+                default:
+                    _menu.ShowWrongChoiceError();
+                    Start();
                     break;
             }
         }

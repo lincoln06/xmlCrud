@@ -10,7 +10,7 @@ namespace deserializer2.Interfaces
 {
     public interface IListViewer
     {
-        void ShowCarList(List<Car> listOfCars);
-        void ShowErrors(string headerMessage, List<string> listOfErrors);
+        void ShowCarList(IEnumerable<Car> listOfCars);
+        void ShowErrors(string headerMessage, IEnumerable<string> listOfErrors);
     }
 }

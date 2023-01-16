@@ -5,5 +5,6 @@
         void ShowMenu();
         void ShowWrongChoiceError();
         void ShowHeader();
+        void AskIfUserWantsToExit();
     }
 }

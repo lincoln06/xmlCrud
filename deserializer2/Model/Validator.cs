@@ -10,10 +10,11 @@ namespace deserializer2.Model
     {
         public List<string> _listOfErrors = new List<string>();
 
-        public bool CheckDataCorrection(string arg1, string arg2, string arg3, string arg4)
+        public bool CheckDataCorrection(Car car)
         {
-            if (arg1 == String.Empty || arg2 == String.Empty || arg3 == String.Empty || arg4 == String.Empty)
+            if (car.Manufacturer == String.Empty || car.Model == String.Empty || car.FuelType == String.Empty || car.Color == String.Empty)
                 return false;
+            if (car.Year is null || car.TopSpeed is null || car.Power is null || car.EngineSize is null) return false;
             return true;
         }
 

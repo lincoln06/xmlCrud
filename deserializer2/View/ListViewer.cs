@@ -5,7 +5,7 @@ namespace deserializer2.View
 {
     public class ListViewer : IListViewer
     {
-        public void ShowCarList(List<Car> listOfCars)
+        public void ShowCarList(IEnumerable<Car> listOfCars)
         {
             int number = 1;
             foreach(Car car in listOfCars)
@@ -24,7 +24,7 @@ namespace deserializer2.View
             }
         }
 
-        public void ShowErrors(string headerMessage, List<string> listOfErrors)
+        public void ShowErrors(string headerMessage, IEnumerable<string> listOfErrors)
         {
             Console.WriteLine($"{new String('-',16)}");
             Console.WriteLine(headerMessage);

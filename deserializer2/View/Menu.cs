@@ -18,13 +18,18 @@ namespace deserializer2.View
         }
         public void ShowHeader()
         {
-            Console.WriteLine("Nacisnij dowolny klawisz aby wyświetlić listę samochodów...");
-            Console.ReadKey();
             Console.Clear();
             Console.WriteLine(new String('-',20));
             Console.WriteLine("Lista samochodów:");
             Console.WriteLine(new String('-', 20));
             Console.WriteLine();
+        }
+
+        public void AskIfUserWantsToExit()
+        {
+            Console.WriteLine("Czy chcesz wyjść?\n");
+            Console.WriteLine("1\tTak");
+            Console.WriteLine("2\tNie");
         }
     }
 }
