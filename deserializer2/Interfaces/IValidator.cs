@@ -1,6 +1,4 @@
-﻿using deserializer2.Classes;
-
-namespace deserializer2.Interfaces
+﻿namespace deserializer2.Interfaces
 {
     public interface IValidator
     {

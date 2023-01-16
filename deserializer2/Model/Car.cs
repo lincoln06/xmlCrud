@@ -1,5 +1,4 @@
-﻿using deserializer2.Interfaces;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 
 namespace deserializer2.Classes
 {

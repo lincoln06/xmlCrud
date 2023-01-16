@@ -1,6 +1,4 @@
-﻿using deserializer2.Classes;
-using deserializer2.Interfaces;
-using System.Reflection.Metadata.Ecma335;
+﻿using deserializer2.Interfaces;
 using System.Xml;
 using System.Xml.Schema;
 
